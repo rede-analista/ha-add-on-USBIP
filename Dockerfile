@@ -1,16 +1,13 @@
 ARG BUILD_FROM
 FROM ${BUILD_FROM}
 
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-
-WORKDIR /usr/src
-
 RUN \
     apt-get update \
-    apt-get install -y usbip \
+    apt-get install -y --no-install-recommends \
+    usbip \
     jq
 
-COPY run.sh /run.sh
+COPY run.sh /
 
 RUN chmod +x /run.sh
 

@@ -16,16 +16,13 @@ usb: true
 hassio_api: true
 hassio_role: manager
 homeassistant_api: true  
-startup: "services"
+startup: system
 boot: "auto"
 options:
   devices:
     - name: "Device1"
       host: "192.168.1.100"
       bus_id: "1-1"
-    - name: "Device2"
-      host: "192.168.1.101"
-      bus_id: "1-2"
 schema:
   devices:
     - name: str

@@ -1,5 +1,5 @@
 build_from:
-  amd64: "alpine:latest"
-  armv7: "alpine:latest"
-  aarch64: "alpine:latest"
+  amd64: "debian:latest"
+  armv7: "debian:latest"
+  aarch64: "debian:latest"
 args: {}

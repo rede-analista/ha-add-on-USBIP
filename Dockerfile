@@ -1,5 +1,13 @@
-FROM alpine:latest
-RUN apk update && apk add --no-cache usbutils jq
+ARG BUILD_FROM
+FROM ${BUILD_FROM}
+
+RUN \
+    apt-get update \
+    apt-get install -y usbip \
+    jq
+
 COPY run.sh /run.sh
+
 RUN chmod +x /run.sh
+
 CMD ["/run.sh"]

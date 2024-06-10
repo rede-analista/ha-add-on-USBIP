@@ -1,0 +1,5 @@
+build_from:
+  amd64: "alpine:latest"
+  armv7: "alpine:latest"
+  aarch64: "alpine:latest"
+args: {}

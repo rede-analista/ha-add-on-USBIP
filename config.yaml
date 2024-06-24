@@ -4,10 +4,7 @@ slug: usbip_client
 description: Connects to remote USBIP servers and attaches USB devices.
 url: "https://github.com/rede-analista/ha-add-on-USBIP"
 arch:
-  - aarch64
   - amd64
-  - armhf
-  - armv7
   - i386
 startup: system
 boot: auto

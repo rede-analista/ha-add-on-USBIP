@@ -1,5 +1,5 @@
 name: USBIP Client
-version: 1.0.0
+version: 1.0.1
 slug: usbip_client
 description: Connects to remote USBIP servers and attaches USB devices.
 url: "https://github.com/rede-analista/ha-add-on-USBIP"

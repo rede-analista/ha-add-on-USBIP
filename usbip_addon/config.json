@@ -1,0 +1,33 @@
+{
+    "name": "USBIP Client",
+    "version": "1.0",
+    "slug": "usbip_client",
+    "description": "Addon to run USBIP client",
+    "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+    "startup": "services",
+    "boot": "auto",
+    "hassio_api": true,
+    "hassio_role": "default",
+    "homeassistant_api": false,
+    "host_network": true,
+    "map": ["config:rw", "ssl:rw", "share:rw", "addons:rw", "backup:rw"],
+    "options": {
+      "devices": [
+        {
+          "name": "Device1",
+          "host": "192.168.1.100",
+          "bus_id": "1-1"
+        }
+      ]
+    },
+    "schema": {
+      "devices": [
+        {
+          "name": "str",
+          "host": "str",
+          "bus_id": "str"
+        }
+      ]
+    }
+  }
+  

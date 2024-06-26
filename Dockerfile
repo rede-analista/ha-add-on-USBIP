@@ -1,7 +1,17 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base:7.3.4
+ARG BUILD_FROM=ghcr.io/hassio-addons/ubuntu-base:8.2.0
+# hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
-RUN apt-get update && apt-get install -y --no-install-recommends apt-utils usbutils usbip jq
+# Set shell
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+RUN \
+    apt-get update \
+    && apt-get install -y --no-install-recommends \
+        apt-utils \
+        usbutils \
+        usbip \
+        jq
 
 COPY run.sh /
 

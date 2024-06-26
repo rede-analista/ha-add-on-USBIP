@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Verificar se a variável de ambiente DEVICES está definida
 if [ -z "$DEVICES" ]; then

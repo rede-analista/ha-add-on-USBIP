@@ -1,21 +1,24 @@
 #!/bin/bash
 
+CONFIG_PATH=/data/options.json
+
+DEVICES=$(jq --raw-output '.devices | length' $CONFIG_PATH)
+
 # Verificar se a variável de ambiente DEVICES está definida
 if [ -z "$DEVICES" ]; then
   echo "Erro: a variável de ambiente DEVICES não está definida."
   exit 1
 fi
 
-# Fazer o attach de cada dispositivo configurado
-for device in $(echo "${DEVICES}" | jq -c '.[]'); do
-  name=$(echo $device | jq -r '.name')
-  host=$(echo $device | jq -r '.host')
-  bus_id=$(echo $device | jq -r '.bus_id')
-  echo "Conectando ao dispositivo ${name} no host ${host} com bus_id ${bus_id}"
-  usbip attach -r $host -b $bus_id
+for (( i=0; i<"$DEVICES"; i++ ));
+do
+  NAME=$(jq --raw-output ".devices[$i].name" $CONFIG_PATH)
+  HOST=$(jq --raw-output ".devices[$i].host" $CONFIG_PATH)
+  BUS_ID=$(jq --raw-output ".devices[$i].bus_id" $CONFIG_PATH)
+
+  echo "Connecting $NAME ($HOST:$BUS_ID)"
+  usbip attach -r $HOST -b $BUS_ID
 done
 
-# Manter o script em execução
-while true; do
-  sleep 3600
-done
+# Keep the container running
+tail -f /dev/null

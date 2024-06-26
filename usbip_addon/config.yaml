@@ -1,6 +1,6 @@
 ---
 name: USBIP Client
-version: 1.0.1
+version: 1.0
 slug: USBIP_Client
 description: Connects to remote USBIP servers and attaches USB devices.
 url: "https://github.com/rede-analista/ha-add-on-USBIP"
@@ -8,8 +8,13 @@ init: false
 arch:
   - amd64
   - i386
-# startup: system
+startup: services
 boot: auto
+hassio_api: true
+hassio_role: default
+homeassistant_api: false
+host_network: true
+map: [config:rw, ssl:rw, share:rw, addons:rw, backup:rw],
 options:
   devices: []
 schema:
@@ -34,6 +39,5 @@ schema:
         name: Bus ID
         description: Bus ID of the USB device.
         required: true
-udev: true
-usb: true
+
 

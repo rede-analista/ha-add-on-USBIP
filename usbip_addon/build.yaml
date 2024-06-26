@@ -1,5 +1,5 @@
 ---
 build_from:
-  amd64: amd64/debian:12.5-slim
-  i386: i386/debian:12.5-slim
+  amd64: amd64-base-python:3.11-alpine3.18
+  i386: i386-base-python:3.11-alpine3.18
 args: {}
